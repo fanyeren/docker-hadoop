@@ -1,0 +1,19 @@
+<settings> 
+   <proxies>
+      <proxy>
+         <id>http-proxy</id>
+         <active>true</active>
+         <protocol>http</protocol>
+         <host>m1-imci-dev00.m1</host>
+         <port>3128</port>
+      </proxy>
+      <proxy>
+         <id>https-proxy</id>
+         <active>true</active>
+         <protocol>https</protocol>
+         <host>m1-imci-dev00.m1</host>
+         <port>3128</port>
+      </proxy>
+
+    </proxies>
+</settings>
