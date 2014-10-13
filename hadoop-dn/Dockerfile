@@ -22,10 +22,6 @@ RUN chmod 755 $HADOOP_INSTALL/bin/start-hadoop.sh
 RUN chown -R work:hadoop $HADOOP_INSTALL/logs
 RUN chown -R work:hadoop /home/work
 
-RUN service rsyslog start
-RUN service ssh start
-RUN service dnsmasq start
-
 # SSH and SERF ports
 EXPOSE 22 7373 7946 
 

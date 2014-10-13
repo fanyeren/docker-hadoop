@@ -29,10 +29,6 @@ RUN su work -c "/home/work/hadoop/bin/hdfs namenode -format"
 ADD config/start-hadoop.sh $HADOOP_INSTALL/bin/start-hadoop.sh
 RUN chmod 755 $HADOOP_INSTALL/bin/start-hadoop.sh
 
-RUN service ssh start
-RUN service dnsmasq start
-RUN service rsyslog start
-
 # SSH and SERF ports
 EXPOSE 22 7373 7946 
 
