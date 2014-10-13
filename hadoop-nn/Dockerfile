@@ -4,21 +4,13 @@ MAINTAINER xiahou feng
 
 RUN apt-get install -y iputils-ping daemontools runit
 
+RUN echo "work:test123456" | chpasswd
 ENV HADOOP_INSTALL /home/work/hadoop
 
 RUN mkdir -p /home/work/hdfs/namenode  
 RUN mkdir -p /home/work/hdfs/datanode 
  
 RUN mkdir $HADOOP_INSTALL/logs
-
-RUN mkdir -p /etc/service/serf
-#RUN mkdir -p /etc/service/sshd
-
-ADD config/service /etc/service 
-
-RUN chmod +x /etc/service/serf/run 
-#RUN chmod +x /etc/service/sshd/run 
-
 
 ADD config/hdfs-site.xml $HADOOP_INSTALL/etc/hadoop/hdfs-site.xml 
 ADD config/core-site.xml $HADOOP_INSTALL/etc/hadoop/core-site.xml 
@@ -37,6 +29,10 @@ RUN su work -c "/home/work/hadoop/bin/hdfs namenode -format"
 ADD config/start-hadoop.sh $HADOOP_INSTALL/bin/start-hadoop.sh
 RUN chmod 755 $HADOOP_INSTALL/bin/start-hadoop.sh
 
+RUN service ssh start
+RUN service dnsmasq start
+RUN service rsyslog start
+
 # SSH and SERF ports
 EXPOSE 22 7373 7946 
 
@@ -46,5 +42,4 @@ EXPOSE 9000 50010 50020 50070 50075 50090 50475
 # YARN ports
 EXPOSE 8030 8031 8032 8033 8040 8042 8060 8088 50060
 
-#ENTRYPOINT ["/bin/bash", "/home/work/hadoop/bin/start-hadoop.sh"]
-CMD ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "/home/work/hadoop/bin/start-hadoop.sh"]
