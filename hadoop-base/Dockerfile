@@ -57,4 +57,4 @@ ADD config/bashrc /home/work/.bashrc
 RUN rm -f /home/work/hadoop/etc/hadoop/hadoop-env.sh 
 ADD config/hadoop-env.sh /home/work/hadoop/etc/hadoop/hadoop-env.sh 
 
-EXPOSE 2222
+EXPOSE 22

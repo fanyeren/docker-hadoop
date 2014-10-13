@@ -12,12 +12,12 @@ RUN mkdir -p /home/work/hdfs/datanode
 RUN mkdir $HADOOP_INSTALL/logs
 
 RUN mkdir -p /etc/service/serf
-RUN mkdir -p /etc/service/sshd
+#RUN mkdir -p /etc/service/sshd
 
 ADD config/service /etc/service 
 
 RUN chmod +x /etc/service/serf/run 
-RUN chmod +x /etc/service/sshd/run 
+#RUN chmod +x /etc/service/sshd/run 
 
 
 ADD config/hdfs-site.xml $HADOOP_INSTALL/etc/hadoop/hdfs-site.xml 
@@ -38,7 +38,7 @@ ADD config/start-hadoop.sh $HADOOP_INSTALL/bin/start-hadoop.sh
 RUN chmod 755 $HADOOP_INSTALL/bin/start-hadoop.sh
 
 # SSH and SERF ports
-EXPOSE 2222 7373 7946 
+EXPOSE 22 7373 7946 
 
 # HDFS ports
 EXPOSE 9000 50010 50020 50070 50075 50090 50475

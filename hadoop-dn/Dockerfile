@@ -9,12 +9,12 @@ ENV HADOOP_INSTALL /home/work/hadoop
 RUN mkdir $HADOOP_INSTALL/logs
 
 RUN mkdir -p /etc/service/serf
-RUN mkdir -p /etc/service/sshd
+#RUN mkdir -p /etc/service/sshd
 
 ADD config/service /etc/service
 
 RUN chmod +x /etc/service/serf/run 
-RUN chmod +x /etc/service/sshd/run 
+#RUN chmod +x /etc/service/sshd/run 
 
 ADD config/hdfs-site.xml $HADOOP_INSTALL/etc/hadoop/hdfs-site.xml 
 ADD config/core-site.xml $HADOOP_INSTALL/etc/hadoop/core-site.xml 
