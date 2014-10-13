@@ -2,8 +2,6 @@ FROM xiahoufeng/hadoop-base
 
 MAINTAINER xiahou feng
 
-RUN echo "work:test123456" | chpasswd
-
 RUN apt-get install -y iputils-ping daemontools
 
 ENV HADOOP_INSTALL /home/work/hadoop

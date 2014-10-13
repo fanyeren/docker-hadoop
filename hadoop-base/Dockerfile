@@ -2,7 +2,7 @@ FROM xiahoufeng/serf
 MAINTAINER xiahou feng
 
 RUN addgroup hadoop
-RUN useradd -d /home/work -m -s /bin/bash -G hadoop work
+RUN usermod -G hadoop work
 RUN mkdir -p /home/work/opdir
 
 ADD jdk7.tar.gz /home/work/opdir
