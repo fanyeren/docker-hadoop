@@ -10,10 +10,11 @@ ADD jdk7.tar.gz /home/work/opdir
 ADD apache-maven-3.2.3-bin.tar.gz /home/work/opdir/
 RUN cd /home/work && ln -s opdir/apache-maven-3.2.3 maven
 
-#ENV JAVA_HOME /home/work/opdir/jdk/default
-#ENV PATH $PATH:$JAVA_HOME/bin:/home/work/maven/bin
-#ENV http_proxy http://m1-imci-dev00.m1:3128
-#ENV https_proxy https://m1-imci-dev00.m1:3128
+ENV JAVA_HOME /home/work/opdir/jdk/default
+ENV PATH $PATH:$JAVA_HOME/bin:/home/work/maven/bin
+ENV http_proxy http://m1-imci-dev00.m1:3128
+ENV https_proxy https://m1-imci-dev00.m1:3128
+ENV DEBIAN_FRONTEND noninteractive
 
 # Update Ubuntu
 RUN apt-get update && apt-get upgrade -y
