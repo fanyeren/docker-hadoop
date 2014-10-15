@@ -14,7 +14,15 @@ ENV JAVA_HOME /home/work/opdir/jdk/default
 ENV PATH $PATH:$JAVA_HOME/bin:/home/work/maven/bin
 ENV http_proxy http://m1-imci-dev00.m1:3128
 ENV https_proxy https://m1-imci-dev00.m1:3128
+
 ENV DEBIAN_FRONTEND noninteractive
+
+# === Locale ===
+RUN locale-gen  en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+
 
 # Update Ubuntu
 RUN apt-get update && apt-get upgrade -y
